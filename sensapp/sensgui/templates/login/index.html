@@ -1,0 +1,441 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>SENS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+       <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}" />
+    </head>
+    <body>  
+      <style>
+        */*Set's border, padding and margin to 0 for all values*/
+        {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        body, html {
+            color: #373C40;
+            font-family: Verdana,Arial, Helvetica, sans-serif;
+            height: 100%;
+            background-color: #f0f0f0;
+            margin:10px;
+        }
+        body {
+            font-size: 70%;
+        }
+        p {
+            padding: 7px 0 7px 0;
+            font-weight: 500;
+            font-size: 10pt;
+        }
+        a {
+            color: #656565;
+            text-decoration:none;
+        }
+        a:hover{
+            color: #abda0f;
+            text-decoration: none;
+        }
+        h1 {
+            font-weight:200;
+            color: #000066;
+            font-size:16pt;
+            background: transparent url(../img/h1.png) no-repeat center left;
+            padding-left:33px;
+            margin:7px 5px 8px 8px;
+        }
+        h4 {
+            padding:1px;
+            color: #ACACAC;
+            font-size:9pt;
+            font-weight:100;
+            text-transform:uppercase;
+        }
+        form.register{
+            width:820px;
+            margin: 20px auto 0px auto;
+            height:530px;
+            background-color:#F2FCFC;
+            padding:5px;                        <!-- background colour -->
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+        }
+        form p{
+            font-size: 8pt;
+            clear:both;
+            margin: 0;
+            color:gray;
+            padding:4px;
+        }
+        form.register fieldset.row1
+        {
+            width:800px;
+            padding:5px;
+            float:left;
+            border-top:1px solid #5F9EA0;
+            margin-bottom:15px;
+        }
+        form.register fieldset.row1 label{
+            width:140px;
+            float: left;
+            text-align: right;
+            margin-right: 6px;
+            margin-top:2px;
+        }
+        form.register fieldset.row2
+        {
+            border-top:1px solid #5F9EA0;
+            border-right:1px solid #5F9EA0;
+            height:270px;
+            padding:5px;
+            float:left;
+        }
+        form.register fieldset.row3
+        {
+            border-top:1px solid #5F9EA0;
+            padding:5px;
+            float:left;
+            margin-bottom:15px;
+            width:400px;
+        }
+        form.register fieldset.bottom
+        {
+            border-top:1px solid #5F9EA0;
+            padding:5px;
+            float:center;
+            margin-bottom:15px;
+            width:800px;
+        }
+        form.register fieldset.row4
+        {
+            border-top:1px solid #5F9EA0;
+            border-right:1px solid #5F9EA0;
+            padding:5px;
+            float:left;
+            clear:both;
+            width:500px;
+        }
+        form.register .infobox{
+            float:right;
+            margin-top:20px;
+            border: 1px solid #5F9EA0;
+            padding:5px;
+            width:380px;
+            height:120px;
+            font-size:9px;
+            background: #FDFEFA url(../img/bg_infobox.gif) repeat-x top left;
+        }
+        form.register legend
+        {
+            color: #5F9EA0;
+            padding:2px;
+            margin-left: 14px;
+            font-weight:bold;
+            font-size: 14px;
+            font-weight:100;
+        }
+        form.register label{
+            color:#444;
+            width:98px;
+            float: left;
+            text-align: right;
+            margin-right: 6px;
+            margin-top:2px;
+        }
+        form.register label.optional{
+            float: left;
+            text-align: right;
+            margin-right: 6px;
+            margin-top:2px;
+            color: #5F9EA0;
+        }
+        form.register label.obinfo{
+            float:right;
+            padding:3px;
+            font-style:italic;
+        }
+        form.register input{
+            width: 140px;
+            color: #505050;
+            float: left;
+            margin-right: 5px;
+        }
+        form.register input.long{
+            width: 247px;
+            color: #505050;
+        }
+        form.register input.short{
+            width: 40px;
+            color: #505050;
+        }
+        form.register input[type=radio]
+        {
+            float:left;
+            width:15px;
+        }
+        form.register label.gender{
+            margin-top:-1px;
+            margin-bottom:2px;
+            width:34px;
+            float:left;
+            text-align:left;
+            line-height:19px;
+        }
+        form.register input[type=text]
+        {
+            border: 1px solid #E1E1E1;
+            height: 18px;
+        }
+        form.register input[type=password]
+        {
+            border: 1px solid #5F9EA0;
+            height: 18px;
+        }
+        .button
+        {
+            background: #abda0f url(../img/overlay.png) repeat-x;
+            padding: 8px 10px 8px;
+            color: #fff;
+            text-decoration: none;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+            cursor: pointer;
+            float:center;
+            font-size:18px;
+            margin:10px;
+        }
+        form.register input[type=text].year
+        {
+            border: 1px solid #E1E1E1;
+            height: 18px;
+            width:30px;
+        }
+        form.register input[type=checkbox] {
+            width:14px;
+            margin-top:4px;
+        }
+        form.register select
+        {
+            border: 1px solid #E1E1E1;
+            width: 130px;
+            float:left;
+            margin-bottom:3px;
+            color: #505050;
+            margin-right:5px;
+        }
+        form.register select.field
+        {
+            width: 150px;
+        }
+        form.register select.time
+        {
+            width: 100px;
+        }
+        input:focus, select:focus{
+            background-color: #efffe0;
+        }
+        p.info{
+            font-size:7pt;
+            color: gray;
+        }
+        p.agreement{
+            margin-left:15px;
+        }
+        p.agreement label{
+            width:390px;
+            text-align:left;
+            margin-top:3px;
+        }
+
+
+
+
+    </style>
+        <form action="" class="register">
+            <h1>SENS FORM</h1>
+            <fieldset class="row1">
+                <legend>Project Name
+                </legend>
+                <p>
+                    <label>Project Name 
+                    </label>
+                    <select class="field">
+                        <option value="1">MOBOMO
+                        </option>
+                        <option value="2">WEBS
+                        </option>
+                        <option value="3">IOT
+                        </option>
+                        <option value="4">PRIVATE FLY
+                        </option>
+                        <option value="5">TOLVEN
+                        </option>
+                        <option value="6">CLEAR SPRING
+                        </option>
+                        
+                    </select>
+                <p>
+                    <label>Project Members
+                    </label>
+                   <select class="field">
+                        <option value="1">VISHNU 
+                        </option>
+                        <option value="2">MITHUN CHERIYATH
+                        </option>
+                        <option value="3">ADARSH
+                        </option>
+                        <option value="4">RUBEN
+                        </option>
+                        <option value="5">FEROZ
+                        </option>
+                        <option value="6">VINEETH
+                        </option>
+                        
+                    </select>
+                    <label class="obinfo">* obligatory fields
+                    </label>
+                </p>
+            </fieldset>
+            <fieldset class="row2">
+                <legend>Instance Details
+                </legend>
+                <p>
+                    <label>Instance Name
+                    </label>
+                    <select class="field">
+                        <option value="1">WEBLOGIC
+                        </option>
+                        <option value="2">ORACLE-DB
+                        </option>
+                        <option value="3">POSTGRES
+                        </option>
+                        <option value="4">MYSQL
+                        </option>
+                        <option value="5">DJANGO 
+                        </option>                        
+                    </select>
+                   
+                </p>
+            
+                <div class="infobox"><h4>Instance Current Status</h4>
+                    <p>VOLUME ID        :9a5q6h8<br>
+                       STORAGE          :8GB<br>
+                       INSTANCE TYPE    :MICRO<br><br>
+
+                       PUBLIC IP        :61.17.42.118<br>
+                       PRIVATE IP       :10.2.0.122<br>
+                       ELASTIC IP       :61.17.42.118<br>
+                       INSTANCE STATUS  :RUNNING
+
+                    </p>
+                </div>
+            </fieldset>
+            <fieldset class="row3">
+                <legend>INSTANCE CHANGE
+                </legend>
+               
+                <p>
+                    <label>INSTANCE START TIME
+                    </label>
+                    <select class="time">
+                        <option value="1">01:00
+                        </option>
+                        <option value="2">02:00
+                        </option>
+                        <option value="3">03:00
+                        </option>
+                        <option value="4">04:00
+                        </option>
+                        <option value="5">05:00
+                        </option>
+                        <option value="6">06:00
+                        </option>
+                        <option value="7">07:00
+                        </option>
+                        <option value="8">08:00
+                        </option>
+                        <option value="9">09:00
+                        </option>
+                        <option value="10">10:00
+                        </option>
+                        <option value="11">11:00
+                        </option>
+                        <option value="12">12:00
+                        </option>
+                        
+                    </select>
+                    <select class='time'>
+                    <option value='AM'>AM</option>
+                    <option value='PM'>PM</option>
+                    </select></p>
+                    <p>
+                    <label>INSTANCE STOP TIME
+                    </label>
+                     <select class="time">
+                        <option value="1">01:00
+                        </option>
+                        <option value="2">02:00
+                        </option>
+                        <option value="3">03:00
+                        </option>
+                        <option value="4">04:00
+                        </option>
+                        <option value="5">05:00
+                        </option>
+                        <option value="6">06:00
+                        </option>
+                        <option value="7">07:00
+                        </option>
+                        <option value="8">08:00
+                        </option>
+                        <option value="9">09:00
+                        </option>
+                        <option value="10">10:00
+                        </option>
+                        <option value="11">11:00
+                        </option>
+                        <option value="12">12:00
+                        </option>
+                        
+                    </select>
+                    <select class='time'>
+                    <option value='AM'>AM</option>
+                    <option value='PM'>PM</option>
+                    </select>
+                   
+                </p>
+                <p>
+                    <label>Email Template
+                    </label>
+                    <select>
+                        <option value="0">Server down
+                        </option>
+                        <option value="1">Server restart
+                        </option>
+                        
+                    </select>
+                </p>
+               
+                <div class="infobox"><h4>Helpful Information</h4>
+                    <p>The server is running smoothly and is facing no immediate threats.</p>
+                </div>
+            </fieldset>
+           <fieldset class='bottom'>
+            <div align='center'><button class="button">SUBMIT &raquo;</button></div>
+            </fieldset>
+        </form>
+    </body>
+</html>
+
+
+
+
+
