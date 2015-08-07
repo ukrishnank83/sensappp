@@ -104,9 +104,31 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = '/home/unni/sensapp/sensapp/sensgui'
+STATIC_ROOT = '/home/unni/sensapp/sensappstatic'
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+ '/home/unni/sensapp/sensapp/sensgui/static',
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 # Additional locations of static files
+
+
+
+#EMAIL ATTRIBUTES
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ukrishnank83@gmail.com'
+EMAIL_HOST_PASSWORD = 'krishnunni94'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
